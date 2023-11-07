@@ -1,10 +1,5 @@
 <template>
-  <form
-    id="my-form"
-    action="/api/test_form_data"
-    method="post"
-    @submit.prevent="testForm('formData')"
-  >
+  <form @submit.prevent="testForm('formData')">
     <h1>Test CSRF <small>with FormData or JSON form</small></h1>
     <input v-model="form.full_name" name="full_name" type="text" />
     <input
