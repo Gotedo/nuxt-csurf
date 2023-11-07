@@ -1,2 +1,2 @@
-import { defineEventHandler } from 'h3'
-export default defineEventHandler(() => 'Test post success')
+import { defineEventHandler } from "h3";
+export default defineEventHandler(() => "Test post success");
