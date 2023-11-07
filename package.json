@@ -29,7 +29,9 @@
     "prepack": "yarn build",
     "dev:prepare": "nuxt-module-build --stub && nuxi prepare playground",
     "prepare": "husky install",
-    "release": "np"
+    "release": "np",
+    "prepublishOnly": "yarn build",
+    "version": "yarn build"
   },
   "dependencies": {
     "@nuxt/kit": "^3.7.1",
@@ -61,7 +63,8 @@
   ],
   "volta": {
     "node": "20.9.0",
-    "yarn": "4.0.1"
+    "yarn": "4.0.1",
+    "npm": "10.2.3"
   },
   "lint-staged": {
     "**/*": "prettier --write --cache --ignore-unknown"
@@ -71,7 +74,7 @@
     "yolo": true,
     "contents": ".",
     "anyBranch": false,
-    "publish": false,
+    "publish": true,
     "branch": "main",
     "releaseDraft": true,
     "message": "chore: bump version to %s 🚀"
