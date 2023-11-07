@@ -28,7 +28,8 @@
     "prettier": "prettier . --write --cache  --ignore-unknown",
     "prepack": "yarn build",
     "dev:prepare": "nuxt-module-build --stub && nuxi prepare playground",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "release": "np"
   },
   "dependencies": {
     "@nuxt/kit": "^3.7.1",
@@ -44,18 +45,35 @@
     "eslint-config-prettier": "^9.0.0",
     "husky": "^8.0.3",
     "lint-staged": "^15.0.2",
+    "np": "^8.0.4",
     "nuxt": "^3.7.1",
     "prettier": "3.0.3"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/gotedo/nuxt-csurf.git"
+    "url": "https://github.com/Gotedo/nuxt-csurf.git"
   },
+  "contributors": [
+    {
+      "name": "Ndianabasi Udonkang",
+      "url": "https://github.com/ndianabasi"
+    }
+  ],
   "volta": {
     "node": "20.9.0",
     "yarn": "4.0.1"
   },
   "lint-staged": {
     "**/*": "prettier --write --cache --ignore-unknown"
+  },
+  "np": {
+    "yarn": false,
+    "yolo": true,
+    "contents": ".",
+    "anyBranch": false,
+    "publish": false,
+    "branch": "main",
+    "releaseDraft": true,
+    "message": "chore: bump version to %s 🚀"
   }
 }
