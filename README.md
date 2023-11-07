@@ -43,6 +43,7 @@ The only thing you need to do to use the module in the default configuration is 
     excludedUrls: ['/nocsrf1', ['/nocsrf2/.*', 'i']], // any URLs we want to exclude from CSRF protection
     encryptSecret: /** a 32 bits secret */, // only for non serverless runtime, random bytes by default
     encryptAlgorithm: 'aes-256-cbc' // by default 'aes-256-cbc' (node), 'AES-CBC' (serverless)
+    useFormToken: true; // Read CSRF token from JSON body or FormData object.
   }
 }
 ```

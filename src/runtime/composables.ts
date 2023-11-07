@@ -67,7 +67,9 @@ export function useCsrfFetch<
     typeof arg1 === "string" ? [{}, arg1] : [arg1, arg2];
   const { csrf } = useCsrf();
   opts.headers = (opts.headers || {}) as Record<string, string>;
-  opts.headers["csrf-token"] = csrf; // add csrf token to req headers
+  if (csrf && csrf.length) {
+    opts.headers["csrf-token"] = csrf; // add csrf token to req headers
+  }
   return useFetch<ResT, ErrorT, ReqT, Method, _ResT, DataT, PickKeys, DefaultT>(
     request,
     opts,
@@ -161,7 +163,7 @@ export function useLazyCsrfFetch<
   );
 }
 
-export function useCsrf() {
+export function useCsrf(): { csrf: string | undefined } {
   // @ts-ignore
-  return { csrf: process.server ? undefined : window._csrfToken };
+  return { csrf: process.server ? undefined : (window._csrfToken as string) };
 }

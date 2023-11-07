@@ -1,6 +1,7 @@
+import { defineNuxtPlugin } from "#app";
 import { $fetch } from "ofetch";
 import type { FetchOptions } from "ofetch";
-import { defineNuxtPlugin, useCsrf } from "#imports";
+import { useCsrf } from "./composables";
 
 export default defineNuxtPlugin(() => {
   const { csrf } = useCsrf();
@@ -11,9 +12,12 @@ export default defineNuxtPlugin(() => {
           options = {};
         }
         options.headers = (options.headers || {}) as Record<string, string>;
-        options.headers["csrf-token"] = csrf;
+        if (csrf && csrf.length) {
+          options.headers["csrf-token"] = csrf;
+        }
         return fetch(request, options);
       },
+      csrf,
     },
   };
 });
